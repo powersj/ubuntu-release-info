@@ -1,5 +1,5 @@
-# This file is part of ubuntu-distro-info. See LICENSE for license infomation.
-"""Ubuntu Distro Info Release class."""
+# This file is part of ubuntu-release-info. See LICENSE for license infomation.
+"""Ubuntu Release Info Release class."""
 
 
 class Release:

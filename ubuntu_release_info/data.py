@@ -1,5 +1,5 @@
-# This file is part of ubuntu-distro-info. See LICENSE for license infomation.
-"""Ubuntu Distro Info Data class."""
+# This file is part of ubuntu-release-info. See LICENSE for license infomation.
+"""Ubuntu Release Info Data class."""
 
 import logging
 from operator import attrgetter

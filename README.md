@@ -1,6 +1,6 @@
-# Ubuntu Distro Info
+# Ubuntu Release Info
 
-[![Build Status](https://travis-ci.org/powersj/ubuntu-distro-info.svg?branch=master)](https://travis-ci.org/powersj/ubuntu-distro-info) [![Snap Status](https://build.snapcraft.io/badge/powersj/ubuntu-distro-info.svg)](https://build.snapcraft.io/user/powersj/ubuntu-distro-info)
+[![Build Status](https://travis-ci.org/powersj/ubuntu-release-info.svg?branch=master)](https://travis-ci.org/powersj/ubuntu-release-info) [![Snap Status](https://build.snapcraft.io/badge/powersj/ubuntu-release-info.svg)](https://build.snapcraft.io/user/powersj/ubuntu-release-info)
 
 Ubuntu distribution release information
 
@@ -12,33 +12,30 @@ release information.
 
 ## Install
 
-Users can obtain ubuntu-iso-download as a snap:
+Users can obtain ubuntu-release-download as a snap:
 
 ```shell
-snap install ubuntu-distro-info
+snap install ubuntu-release-info
 ```
 
 Or via PyPI:
 
 ```shell
-pip3 install ubuntu-distro-info
+pip3 install ubuntu-release-info
 ```
 
 ## Usage
 
-A user needs to provide at the very last the flavor of ISo to download.
-By default, this will then download the latest released LTS of that
-flavor:
+Run the command with the flag to see the codenames matching that flag:
 
 ```shell
-ubuntu-distro-info
+ubuntu-release-info
 ```
 
-A specific, supported release can be specified as well:
+Options:
 
-```shell
-# Ubuntu Xenial of Ubuntu server
-ubuntu-iso-download server xenial
-# Ubuntu Cosmic of Xubuntu
-ubuntu-iso-download xubuntu cosmic
-```
+* all:
+* lts:
+* devel:
+* supported:
+* unsupported:

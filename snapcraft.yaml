@@ -1,4 +1,4 @@
-name: ubuntu-distro-info
+name: ubuntu-release-info
 summary: Ubuntu distribution release information
 description: |
     Similar to the 'distro-info' package, this class parses and
@@ -15,13 +15,13 @@ environment:
     LANG: C.UTF-8
 
 apps:
-    ubuntu-distro-info:
-        command: bin/ubuntu-distro-info
+    ubuntu-release-info:
+        command: bin/ubuntu-release-info
         plugs:
             - network
 
 parts:
-    ubuntu-distro-info:
+    ubuntu-release-info:
         plugin: python
-        source: https://github.com/powersj/ubuntu-distro-info
+        source: https://github.com/powersj/ubuntu-release-info
         source-type: git

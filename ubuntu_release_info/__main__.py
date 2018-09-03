@@ -1,5 +1,5 @@
-# This file is part of ubuntu-distro-info. See LICENSE for license infomation.
-"""Ubuntu Distro Info main module."""
+# This file is part of ubuntu-release-info. See LICENSE for license infomation.
+"""Ubuntu Release Info main module."""
 
 import argparse
 import sys
@@ -9,7 +9,7 @@ from .data import Data
 
 def parse_args():
     """Set up command-line arguments."""
-    parser = argparse.ArgumentParser('ubuntu-distro-info')
+    parser = argparse.ArgumentParser('ubuntu-release-info')
     group = parser.add_mutually_exclusive_group(required=True)
     group.add_argument(
         '--all',
@@ -46,7 +46,7 @@ def parse_args():
 
 
 def launch():
-    """Launch ubuntu-iso-download."""
+    """Launch ubuntu-release-info."""
     args = parse_args()
 
     ubuntu = Data()
