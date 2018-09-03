@@ -1,0 +1,27 @@
+name: ubuntu-distro-info
+summary: Ubuntu distribution release information
+description: |
+    Similar to the 'distro-info' package, this class parses and
+    contains the Ubuntu release information. Instead of a static data
+    file, this instead downloads the the meta-release information from
+    changelogs.ubuntu.com, and parses it to determine the most recent
+    release information.
+
+version: git
+grade: stable
+confinement: strict
+environment:
+    LC_ALL: C.UTF-8
+    LANG: C.UTF-8
+
+apps:
+    ubuntu-distro-info:
+        command: bin/ubuntu-distro-info
+        plugs:
+            - network
+
+parts:
+    ubuntu-distro-info:
+        plugin: python
+        source: https://github.com/powersj/ubuntu-distro-info
+        source-type: git
