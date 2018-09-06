@@ -10,35 +10,32 @@ from .data import Data
 def parse_args():
     """Set up command-line arguments."""
     parser = argparse.ArgumentParser('ubuntu-release-info')
-    group = parser.add_mutually_exclusive_group(required=True)
-    group.add_argument(
-        '--all',
-        action='store_true',
-        help='list all known versions'
-    )
-    group.add_argument(
-        '--devel',
-        action='store_true',
-        help='latest development version'
-    )
-    group.add_argument(
-        '--lts',
-        action='store_true',
+    subparsers = parser.add_subparsers()
+    subparsers.required = True
+    subparsers.dest = 'command'
+
+    subparsers.add_parser(
+        'lts',
         help='latest long term support (LTS) version'
     )
-    group.add_argument(
-        '--stable',
-        action='store_true',
+    subparsers.add_parser(
+        'stable',
         help='latest stable version'
     )
-    group.add_argument(
-        '--supported',
-        action='store_true',
+    subparsers.add_parser(
+        'devel',
+        help='latest development version'
+    )
+    subparsers.add_parser(
+        'all',
+        help='list all known versions'
+    )
+    subparsers.add_parser(
+        'supported',
         help='list all supported versions'
     )
-    group.add_argument(
-        '--unsupported',
-        action='store_true',
+    subparsers.add_parser(
+        'unsupported',
         help='list all unsupported versions'
     )
 
@@ -51,19 +48,19 @@ def launch():
 
     ubuntu = Data()
 
-    if args.all:
+    if args.command == 'all':
         for key in ubuntu.all:
             print(key)
-    elif args.devel:
+    elif args.command == 'devel':
         print(ubuntu.devel)
-    elif args.lts:
+    elif args.command == 'lts':
         print(ubuntu.lts)
-    elif args.stable:
+    elif args.command == 'stable':
         print(ubuntu.stable)
-    elif args.supported:
+    elif args.command == 'supported':
         for release in ubuntu.supported:
             print(release)
-    elif args.unsupported:
+    elif args.command == 'unsupported':
         for release in ubuntu.unsupported:
             print(release)
 
