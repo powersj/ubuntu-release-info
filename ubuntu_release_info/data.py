@@ -111,7 +111,7 @@ class Data:
             List of all Release objects.
 
         """
-        return self.releases
+        return sorted(self.releases)
 
     @property
     def devel(self):
@@ -170,7 +170,7 @@ class Data:
             if release.is_supported:
                 supported.append(release)
 
-        return supported
+        return sorted(supported)
 
     @property
     def unsupported(self):
@@ -185,4 +185,4 @@ class Data:
             if not release.is_supported:
                 unsupported.append(release)
 
-        return unsupported
+        return sorted(unsupported)
