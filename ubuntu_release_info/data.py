@@ -118,14 +118,14 @@ class Data:
         """Return devel release.
 
         Return:
-            Release object that is devel, or None.
+            Release object that is devel or none.
 
         """
         for _, release in self.releases.items():
             if release.is_dev:
                 return release
 
-        return None
+        return 'none'
 
     @property
     def lts(self):
