@@ -44,7 +44,7 @@ class Release:
         elif self.month < other.month:
             return False
         elif self.month > other.month:
-            return False
+            return True
         elif self.point < other.point:
             return False
         elif self.point > other.point:
@@ -61,7 +61,7 @@ class Release:
         elif self.month < other.month:
             return False
         elif self.month > other.month:
-            return False
+            return True
         elif self.point < other.point:
             return False
         elif self.point > other.point:
