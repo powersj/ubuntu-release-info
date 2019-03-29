@@ -79,7 +79,7 @@ class Release:
 
     def __ne__(self, other):
         """Return not equal boolean."""
-        if not isinstance(other, Release):
+        if isinstance(other, Release):
             return False
 
         return not self.__eq__(other)
