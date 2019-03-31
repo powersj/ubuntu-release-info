@@ -5,7 +5,8 @@ SETUP  := $(PYTHON) setup.py
 
 clean:
 	$(SETUP) clean
-	rm -rf .tox .eggs *.egg-info *.snap *.tar.bz2 build dist venv
+	rm -f .coverage .eggs *.egg-info *.snap *.tar.bz2
+	rm -rf .pytest_cache/ .tox/ htmlcov build dist venv
 	@find . -regex '.*\(__pycache__\|\.py[co]\)' -delete
 
 install:

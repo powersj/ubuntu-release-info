@@ -1,4 +1,4 @@
-# This file is part of ubuntu-bug-triage. See LICENSE file for license info.
+# This file is part of ubuntu-release-info. See LICENSE file for license info.
 # pylint: disable=comparison-with-itself, unneeded-not
 """Test view module."""
 from .release import Release
@@ -11,25 +11,25 @@ disco = Release('disco', 'Dingo Disco', '19.04', True, False)
 
 
 def test_codename():
-    """TODO."""
+    """Test basic codename."""
     assert str(bionic) == 'bionic'
 
 
 def test_eq():
-    """TODO."""
+    """Test equality."""
     assert bionic == bionic
     assert not bionic == cosmic
     assert not bionic == ''
 
 
 def test_not_eq():
-    """TODO."""
+    """Test not equality."""
     assert bionic != []
     assert not bionic != cosmic
 
 
-def test_gt():
-    """TODO."""
+def test_gt_or_lt():
+    """Test greater than and less than."""
     assert artful < disco
     assert disco > artful
     assert bionic < cosmic
@@ -39,8 +39,8 @@ def test_gt():
     assert not bionic > bionic
 
 
-def test_gt_eq():
-    """TODO."""
+def test_ge_or_le():
+    """Test greater than or equal or less than equal."""
     assert artful <= disco
     assert disco >= artful
     assert bionic <= cosmic
