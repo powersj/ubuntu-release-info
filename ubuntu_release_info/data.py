@@ -88,7 +88,7 @@ class Data:
         Exits on unknown release.
 
         Args:
-            codename: string of codename to find
+            codename: string of codename to find (e.g. xenial, bionic)
 
         Returns:
             Release object of matching release
@@ -102,6 +102,35 @@ class Data:
                 ' Please choose from:\n%s',
                 codename, [release.codename for release in self.supported])
             sys.exit(1)
+
+    def by_release(self, version):
+        """Return release given a specific release.
+
+        Exits on unknown release.
+
+        Args:
+            version: string of release to find (e.g. 18.04, 20.04)
+
+        Returns:
+            Release object of matching release
+
+        """
+        for release in self.supported:
+            # Need to cover the case where we get the version without
+            # the point release (e.g. 18.04, 20.04)
+            if len(version) == 5:
+                short_release = '.'.join(release.version.split('.')[:2])
+                if version == short_release:
+                    return release
+            elif release.version == version:
+                return release
+
+        self._log.error(
+            'Oops: unknown release \'%s\'!'
+            ' Please choose from:\n%s',
+            version, [release.version for release in self.supported]
+        )
+        sys.exit(1)
 
     @property
     def all(self):
