@@ -15,7 +15,7 @@ with open(README_FILE, 'r') as readme:
 
 setup(
     name='ubuntu-release-info',
-    version='19.1',
+    version='20.1',
     description='Ubuntu distribution release information',
     long_description=README_TEXT,
     long_description_content_type='text/markdown',
@@ -43,6 +43,7 @@ setup(
     ],
     keywords=['ubuntu', 'distro', 'release', 'info'],
     packages=find_packages(),
+    include_package_data=True,
     entry_points={
         'console_scripts':
             ['ubuntu-release-info=ubuntu_release_info.__main__:launch']
