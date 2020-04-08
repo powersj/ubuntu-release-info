@@ -19,8 +19,9 @@ class Release:
             lts: boolean, if LTS or not
         """
         self.codename = codename
-        self.name = 'Ubuntu %s (%s)' % (version, name)
-        self.version = version.replace(' LTS', '')
+        self.full_codename = name
+        self.name = "Ubuntu %s (%s)" % (version, name)
+        self.version = version.replace(" LTS", "")
         self.is_supported = supported
         self.is_lts = lts
         self.is_dev = False
@@ -91,17 +92,17 @@ class Release:
     @property
     def year(self):
         """Return year of release."""
-        return int(self.version.split('.')[0])
+        return int(self.version.split(".")[0])
 
     @property
     def month(self):
         """Return month of release."""
-        return int(self.version.split('.')[1])
+        return int(self.version.split(".")[1])
 
     @property
     def point(self):
         """Return point of release."""
         try:
-            return int(self.version.split('.')[2])
+            return int(self.version.split(".")[2])
         except IndexError:
             return 0
