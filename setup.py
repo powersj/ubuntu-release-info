@@ -22,11 +22,9 @@ setup(
     author="Joshua Powers",
     author_email="josh.powers@canonical.com",
     url="https://github.com/powersj/ubuntu-release-info",
-    download_url=(
-        "https://github.com/powersj/ubuntu-release-info/tarball/master"
-    ),
+    download_url=("https://github.com/powersj/ubuntu-release-info/tarball/master"),
     install_requires=REQUIREMENTS,
-    python_requires=">=3.4",
+    python_requires=">=3.6",
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Environment :: Console",
@@ -35,9 +33,9 @@ setup(
         "Natural Language :: English",
         "Operating System :: POSIX :: Linux",
         "Programming Language :: Python :: 3 :: Only",
-        "Programming Language :: Python :: 3.4",
-        "Programming Language :: Python :: 3.5",
         "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
         "Topic :: Software Development :: Quality Assurance",
         "Topic :: Software Development :: Testing",
     ],
@@ -45,9 +43,7 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     entry_points={
-        "console_scripts": [
-            "ubuntu-release-info=ubuntu_release_info.__main__:launch"
-        ]
+        "console_scripts": ["ubuntu-release-info=ubuntu_release_info.__main__:launch"]
     },
     zip_safe=True,
 )

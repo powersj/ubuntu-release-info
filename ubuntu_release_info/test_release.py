@@ -3,23 +3,23 @@
 """Test view module."""
 from .release import Release
 
-artful = Release('artful', 'Artful Aardvark', '17.10', False, False)
-bionic = Release('bionic', 'Bionic Beaver LTS', '18.04 LTS', True, True)
-bionic_ = Release('bionic', 'Bionic Beaver LTS', '18.04.1 LTS', True, True)
-cosmic = Release('cosmic', 'Cosmic Cuttlefish', '18.10', True, False)
-disco = Release('disco', 'Dingo Disco', '19.04', True, False)
+artful = Release("artful", "Artful Aardvark", "17.10", False, False)
+bionic = Release("bionic", "Bionic Beaver LTS", "18.04 LTS", True, True)
+bionic_ = Release("bionic", "Bionic Beaver LTS", "18.04.1 LTS", True, True)
+cosmic = Release("cosmic", "Cosmic Cuttlefish", "18.10", True, False)
+disco = Release("disco", "Dingo Disco", "19.04", True, False)
 
 
 def test_codename():
     """Test basic codename."""
-    assert str(bionic) == 'bionic'
+    assert str(bionic) == "bionic"
 
 
 def test_eq():
     """Test equality."""
     assert bionic == bionic
     assert not bionic == cosmic
-    assert not bionic == ''
+    assert not bionic == ""
 
 
 def test_not_eq():

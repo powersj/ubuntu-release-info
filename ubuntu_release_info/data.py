@@ -10,15 +10,15 @@ import yaml
 
 from .release import Release
 
-logging.getLogger('requests').setLevel(logging.WARNING)
-logging.getLogger('urllib3').setLevel(logging.WARNING)
+logging.getLogger("requests").setLevel(logging.WARNING)
+logging.getLogger("urllib3").setLevel(logging.WARNING)
 
 
 class Data:
     """Data Object."""
 
-    url_release = 'https://changelogs.ubuntu.com/meta-release'
-    url_release_dev = 'https://changelogs.ubuntu.com/meta-release-development'
+    url_release = "https://changelogs.ubuntu.com/meta-release"
+    url_release_dev = "https://changelogs.ubuntu.com/meta-release-development"
 
     def __init__(self):
         """Initialize object.
@@ -59,25 +59,25 @@ class Data:
         meta_data = requests.get(url)
         if not meta_data.ok:
             self._log.error(
-                'Oops: could not download Ubuntu meta-release from: %s', url
+                "Oops: could not download Ubuntu meta-release from: %s", url
             )
             sys.exit(1)
 
-        for release in meta_data.content.decode('utf-8').split('\n\n'):
+        for release in meta_data.content.decode("utf-8").split("\n\n"):
             # use the baseloader to prevent it from munging the version
             # from a string to some odd integer value
             data = yaml.load(release, Loader=yaml.BaseLoader)
 
             supported = False
-            if data['Supported'] == '1':
+            if data["Supported"] == "1":
                 supported = True
 
             lts = False
-            if 'LTS' in data['Version']:
+            if "LTS" in data["Version"]:
                 lts = True
 
-            releases[data['Dist']] = Release(
-                data['Dist'], data['Name'], data['Version'], supported, lts
+            releases[data["Dist"]] = Release(
+                data["Dist"], data["Name"], data["Version"], supported, lts
             )
 
         return releases
@@ -98,9 +98,10 @@ class Data:
             return self.releases[codename]
         except KeyError:
             self._log.error(
-                'Oops: unknown release codename \'%s\'!'
-                ' Please choose from:\n%s',
-                codename, [release.codename for release in self.supported])
+                "Oops: unknown release codename '%s'!" " Please choose from:\n%s",
+                codename,
+                [release.codename for release in self.supported],
+            )
             sys.exit(1)
 
     def by_release(self, version):
@@ -119,16 +120,16 @@ class Data:
             # Need to cover the case where we get the version without
             # the point release (e.g. 18.04, 20.04)
             if len(version) == 5:
-                short_release = '.'.join(release.version.split('.')[:2])
+                short_release = ".".join(release.version.split(".")[:2])
                 if version == short_release:
                     return release
             elif release.version == version:
                 return release
 
         self._log.error(
-            'Oops: unknown release \'%s\'!'
-            ' Please choose from:\n%s',
-            version, [release.version for release in self.supported]
+            "Oops: unknown release '%s'!" " Please choose from:\n%s",
+            version,
+            [release.version for release in self.supported],
         )
         sys.exit(1)
 
@@ -154,7 +155,7 @@ class Data:
             if release.is_dev:
                 return release
 
-        return 'none'
+        return "none"
 
     @property
     def lts(self):
@@ -169,7 +170,7 @@ class Data:
             if release.is_lts and not release.is_dev:
                 lts.append(release)
 
-        return max(lts, key=attrgetter('year'))
+        return max(lts, key=attrgetter("year"))
 
     @property
     def stable(self):
