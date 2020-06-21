@@ -1,6 +1,6 @@
 # Ubuntu Release Info
 
-[![Build Status](https://travis-ci.org/powersj/ubuntu-release-info.svg?branch=master)](https://travis-ci.org/powersj/ubuntu-release-info) [![Snap Status](https://build.snapcraft.io/badge/powersj/ubuntu-release-info.svg)](https://build.snapcraft.io/user/powersj/ubuntu-release-info)
+[![Build Status](https://travis-ci.com/powersj/ubuntu-release-info.svg?branch=master)](https://travis-ci.com/powersj/ubuntu-release-info) [![Snap Status](https://build.snapcraft.io/badge/powersj/ubuntu-release-info.svg)](https://build.snapcraft.io/user/powersj/ubuntu-release-info)
 
 [![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/ubuntu-release-info)
 
