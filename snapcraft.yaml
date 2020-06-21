@@ -7,11 +7,10 @@ description: |
     changelogs.ubuntu.com, and parses it to determine the most recent
     release information.
 
-version: git
-version-script: git rev-parse --short HEAD
 base: core18
 grade: stable
 confinement: strict
+adopt-info: ubuntu-release-info
 environment:
     LC_ALL: C.UTF-8
     LANG: C.UTF-8
@@ -27,3 +26,8 @@ parts:
         plugin: python
         source: https://github.com/powersj/ubuntu-release-info
         source-type: git
+        override-pull: |
+            snapcraftctl pull
+            DATE="$(date +%Y.%m.%d)"
+            GIT="$(git rev-parse --short HEAD)"
+            snapcraftctl set-version "${DATE}+git${GIT}"
