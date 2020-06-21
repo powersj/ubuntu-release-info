@@ -7,7 +7,7 @@ description: |
     changelogs.ubuntu.com, and parses it to determine the most recent
     release information.
 
-base: core18
+base: core20
 grade: stable
 confinement: strict
 adopt-info: ubuntu-release-info
