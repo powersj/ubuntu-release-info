@@ -1,2 +1,2 @@
-pyyaml==4.2b1
-requests==2.21.0
+pyyaml
+requests
